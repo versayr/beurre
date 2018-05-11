@@ -59,14 +59,8 @@ class App extends Component {
           </button>
         </header>
         <div className="responseField">
-          <ul className="pastries">
-            <li><button>AM Pastries</button></li>
-            <li>{this.renderPastry(this.state.muffins.slice(), 'muffins')}</li>
-            <li><button>PM Pastries</button></li>
-            <li>{this.renderPastry(this.state.scones.slice(), 'scones')}</li>
-            <li><button>Cupcakes</button></li>
-            <li><button>Other Pastries</button></li>
-          </ul>
+          {this.renderPastry(this.state.muffins.slice(), 'muffins')}
+          {this.renderPastry(this.state.scones.slice(), 'scones')}
         </div>
       </div>
     );
@@ -85,12 +79,8 @@ class App extends Component {
           </button>
         </header>
         <div className="responseField">
-          <ul className="pastries">
-            <li><button>AM Pastries</button></li>
-            <li><button>PM Pastries</button></li>
-            <li><button>Cupcakes</button></li>
-            <li><button>Other Pastries</button></li>
-          </ul>
+          {this.renderPastry(this.state.muffins.slice(), 'muffins')}
+          {this.renderPastry(this.state.scones.slice(), 'scones')}
         </div>
       </div>
     );
