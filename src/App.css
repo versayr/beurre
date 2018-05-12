@@ -29,7 +29,10 @@
   float: right;
 }
 
-.responseField {
+.Location-clarendon, .Location-bakery {
+}
+
+.ResponseField {
   background-color: #ffb951;
   padding: 10px;
   flex: 1 1 auto;

@@ -24,41 +24,32 @@ class App extends Component {
 
   renderIntro() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Beurre</h1>
-        </header>
-        <p className="App-intro">
-          Are you in Clarendon or the Bakery?
-        </p>
-        <button 
-          className="Location-clarendon" 
-          onClick={() => this.setState({location: 'clarendon'})}>
-          I'm in Clarendon
-        </button>
-        <button 
-          className="Location-bakery" 
-          onClick={() => this.setState({location: 'bakery'})}>
-          I'm in the Bakery
-        </button>
+      <div className="Intro">
+        <div className="ResponseField">
+          <button 
+            className="Location-clarendon" 
+            onClick={() => this.setState({location: 'clarendon'})}>
+            I'm in Clarendon
+          </button>
+          <button 
+            className="Location-bakery" 
+            onClick={() => this.setState({location: 'bakery'})}>
+            I'm in the Bakery
+          </button>
+        </div>
       </div>
     );
   }
 
   renderClarendon() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Beurre Clarendon</h1>
-          <button
-            className="Location-intro"
-            onClick={() => this.setState({location: null})}>
-            Back
-          </button>
-        </header>
-        <div className="responseField">
+      <div className="Clarendon">
+        <button
+          className="Location-intro"
+          onClick={() => this.setState({location: null})}>
+          Back
+        </button>
+        <div className="ResponseField">
           {this.renderPastry(this.state.muffins.slice(), 'muffins')}
           {this.renderPastry(this.state.scones.slice(), 'scones')}
         </div>
@@ -68,17 +59,13 @@ class App extends Component {
 
   renderBakery() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Beurre Bakery</h1>
-          <button
-            className="Location-intro"
-            onClick={() => this.setState({location: null})}>
-            Back
-          </button>
-        </header>
-        <div className="responseField">
+      <div className="Bakery">
+        <button
+          className="Location-intro"
+          onClick={() => this.setState({location: null})}>
+          Back
+        </button>
+        <div className="ResponseField">
           {this.renderPastry(this.state.muffins.slice(), 'muffins')}
           {this.renderPastry(this.state.scones.slice(), 'scones')}
         </div>
@@ -97,19 +84,25 @@ class App extends Component {
   }
 
   render() {
+    var responseField;
+
     if (this.state.location === 'clarendon') {
-      return (
-        this.renderClarendon()
-      );
+        responseField = this.renderClarendon()
     } else if (this.state.location === 'bakery') {
-      return (
-        this.renderBakery()
-      );
+        responseField = this.renderBakery()
     } else {
-      return (
-        this.renderIntro()
-      );
+        responseField = this.renderIntro()
     }
+
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">welcome to beurre</h1>
+        </header>
+        {responseField}
+      </div>
+    );
   }
 }
 
