@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header';
+import ResponseFieldIntro from './components/response_field_intro';
+import ResponseFieldClarendon from './components/response_field_clarendon';
+import ResponseFieldBakery from './components/response_field_bakery';
 
 class App extends Component {
   constructor(props) {
@@ -67,7 +70,7 @@ class App extends Component {
         </button>
         <div className="ResponseField">
           {this.renderPastry(this.state.muffins.slice(), 'muffins')}
-          {this.renderPastry(this.state.scones.slice(), 'scones')}
+
         </div>
       </div>
     );
@@ -80,29 +83,32 @@ class App extends Component {
           return <li key={ index }>{name}</li>;
         })}
       </ul>
-    )
+    );
   }
 
   render() {
-    var responseField;
-
     if (this.state.location === 'clarendon') {
-        responseField = this.renderClarendon()
+      return (
+        <div className="App">
+          <Header />
+          <ResponseFieldClarendon />
+        </div>
+      );
     } else if (this.state.location === 'bakery') {
-        responseField = this.renderBakery()
+      return (
+        <div className="App">
+          <Header />
+          <ResponseFieldBakery />
+        </div>
+      );
     } else {
-        responseField = this.renderIntro()
+      return (
+        <div className="App">
+          <Header />
+          <ResponseFieldIntro />
+        </div>
+      );
     }
-
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">welcome to beurre</h1>
-        </header>
-        {responseField}
-      </div>
-    );
   }
 }
 
