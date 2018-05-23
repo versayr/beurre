@@ -8,6 +8,11 @@ import ResponseFieldBakery from './components/response_field_bakery';
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.goBack = this.goBack.bind(this);
+    this.goClarendon = this.goClarendon.bind(this);
+    this.goBakery = this.goBakery.bind(this);
+
     this.state = {
       location: null,
       scones: [
@@ -22,26 +27,40 @@ class App extends Component {
         'Chocolate Chip Muffin',
         'Banana Walnut Muffin',
       ],
+      otherAM: [
+        'Coffee Cake Slice',
+        'Plain Croissant',
+        'Chocolate Croissant',
+        'Almond Croissant',
+        'Pecan Sticky Bun',
+        'Buttery Biscuit',
+        'Buttery Bun of the Day',
+      ],
+      pastriesPM: [
+        'Choclate Chunk Cookie',
+        'Reese\'s Peanut Butter Cookie',
+        'Oatmeal Raisin Cookie',
+        'Chocolate Dipped Macaroon',
+        'Fudge Brownie',
+        'Sweet Potato Blondie',
+      ],
+      cupcakes: [
+        'Milly',
+        'Madison',
+        'Dexter',
+        'Simon',
+        'Harriet',
+        'Red Velvet',
+        'German Chocolate',
+      ],
+      pastries: [
+        this.scones,
+        this.muffins,
+        this.otherAM,
+        this.pastriesPM,
+        this.cupcakes,
+      ],
     };
-  }
-
-  renderIntro() {
-    return (
-      <div className="Intro">
-        <div className="ResponseField">
-          <button 
-            className="Location-clarendon" 
-            onClick={() => this.setState({location: 'clarendon'})}>
-            I'm in Clarendon
-          </button>
-          <button 
-            className="Location-bakery" 
-            onClick={() => this.setState({location: 'bakery'})}>
-            I'm in the Bakery
-          </button>
-        </div>
-      </div>
-    );
   }
 
   renderClarendon() {
@@ -86,18 +105,39 @@ class App extends Component {
     );
   }
 
+  goBakery (e) {
+    e.preventDefault();
+    this.setState({
+      location: 'bakery'
+    });
+  }
+
+  goClarendon (e) {
+    e.preventDefault();
+    this.setState({
+      location: 'clarendon'
+    });
+  }
+
+  goBack (e) {
+    e.preventDefault();
+    this.setState({
+      location: null
+    });
+  }
+
   render() {
     if (this.state.location === 'clarendon') {
       return (
         <div className="App">
-          <Header />
-          <ResponseFieldClarendon />
+          <Header goBack={this.goBack} />
+          <ResponseFieldClarendon pastries={this.state.pastries} />
         </div>
       );
     } else if (this.state.location === 'bakery') {
       return (
         <div className="App">
-          <Header />
+          <Header goBack={this.goBack} />
           <ResponseFieldBakery />
         </div>
       );
@@ -105,7 +145,10 @@ class App extends Component {
       return (
         <div className="App">
           <Header />
-          <ResponseFieldIntro />
+          <ResponseFieldIntro 
+            goClarendon={this.goClarendon}
+            goBakery={this.goBakery}
+          />
         </div>
       );
     }
