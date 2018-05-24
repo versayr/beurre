@@ -4,6 +4,7 @@ import Header from './components/header';
 import ResponseFieldIntro from './components/response_field_intro';
 import ResponseFieldClarendon from './components/response_field_clarendon';
 import ResponseFieldBakery from './components/response_field_bakery';
+import PastryList from './pastries';
 
 class App extends Component {
   constructor(props) {
@@ -15,51 +16,7 @@ class App extends Component {
 
     this.state = {
       location: null,
-      scones: [
-        'Chocolate Orange Scone',
-        'Blueberry Lemon Scone',
-        'Butterscotch Scone',
-        'Maple Bacon Scone',
-      ],
-      muffins: [
-        'Blueberry Muffin',
-        'Morning Glory Muffin',
-        'Chocolate Chip Muffin',
-        'Banana Walnut Muffin',
-      ],
-      otherAM: [
-        'Coffee Cake Slice',
-        'Plain Croissant',
-        'Chocolate Croissant',
-        'Almond Croissant',
-        'Pecan Sticky Bun',
-        'Buttery Biscuit',
-        'Buttery Bun of the Day',
-      ],
-      pastriesPM: [
-        'Choclate Chunk Cookie',
-        'Reese\'s Peanut Butter Cookie',
-        'Oatmeal Raisin Cookie',
-        'Chocolate Dipped Macaroon',
-        'Fudge Brownie',
-        'Sweet Potato Blondie',
-      ],
-      cupcakes: [
-        'Milly',
-        'Madison',
-        'Dexter',
-        'Simon',
-        'Harriet',
-        'Red Velvet',
-        'German Chocolate',
-      ],
-      pastries: [
-        this.scones,
-        this.muffins,
-        this.otherAM,
-        this.pastriesPM,
-        this.cupcakes,
-      ],
+      pastries: PastryList,
     };
   }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 
-const PastryCategory = () => {
-  return <span>Pastry Category</span>;
+const PastryCategory = ({pastryCategory}) => {
+  const categoryName = Object.keys(pastryCategory)[0];
+  return <li>{categoryName}</li>;
 };
 
 export default PastryCategory;
