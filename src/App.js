@@ -20,22 +20,6 @@ class App extends Component {
     };
   }
 
-  renderClarendon() {
-    return (
-      <div className="Clarendon">
-        <button
-          className="Location-intro"
-          onClick={() => this.setState({location: null})}>
-          Back
-        </button>
-        <div className="ResponseField">
-          {this.renderPastry(this.state.muffins.slice(), 'muffins')}
-          {this.renderPastry(this.state.scones.slice(), 'scones')}
-        </div>
-      </div>
-    );
-  }
-
   renderBakery() {
     return (
       <div className="Bakery">
@@ -84,31 +68,20 @@ class App extends Component {
   }
 
   render() {
+    let selectedField;
     if (this.state.location === 'clarendon') {
-      return (
-        <div className="App">
-          <Header goBack={this.goBack} />
-          <ResponseFieldClarendon pastries={this.state.pastries} />
-        </div>
-      );
+      selectedField = <ResponseFieldClarendon pastries={this.state.pastries} />;
     } else if (this.state.location === 'bakery') {
-      return (
-        <div className="App">
-          <Header goBack={this.goBack} />
-          <ResponseFieldBakery />
-        </div>
-      );
+      selectedField = <ResponseFieldBakery pastries={this.state.pastries} />;
     } else {
-      return (
-        <div className="App">
-          <Header />
-          <ResponseFieldIntro 
-            goClarendon={this.goClarendon}
-            goBakery={this.goBakery}
-          />
-        </div>
-      );
+      selectedField = <ResponseFieldIntro goClarendon={this.goClarendon} goBakery={this.goBakery} />;
     }
+    return (
+      <div className="App">
+        <Header goBack={this.goBack} />
+        {selectedField}
+      </div>
+    );
   }
 }
 
