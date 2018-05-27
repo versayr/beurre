@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PastryCategory from './pastry_category';
 
-const ResponseFieldClarendon = ({pastries}) => {
-  const pastryCategories = pastries.map((pastry, index) => {
-    return <PastryCategory key={index} pastryCategory={pastry} />;
-  });
+class ResponseFieldClarendon extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedCategory: null,
+    };
+  }
 
-  return (
-    <div className="ResponseField">
-      <ul>
-        {pastryCategories}
-      </ul>
-    </div>
-  );
-};
+  renderCategories() {
+    return this.props.pastries.map((pastry, index) => {
+      return (
+        <PastryCategory 
+          key={index} 
+          pastryCategory={pastry} />
+      );
+    });
+  }
+
+  render() {
+    return (
+      <div className="ResponseField">
+        <ul>
+          {this.renderCategories()}
+        </ul>
+      </div>
+    );
+  }
+}
 
 export default ResponseFieldClarendon;
