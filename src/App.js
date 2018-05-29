@@ -20,22 +20,6 @@ class App extends Component {
     };
   }
 
-  renderBakery() {
-    return (
-      <div className="Bakery">
-        <button
-          className="Location-intro"
-          onClick={() => this.setState({location: null})}>
-          Back
-        </button>
-        <div className="ResponseField">
-          {this.renderPastry(this.state.muffins.slice(), 'muffins')}
-
-        </div>
-      </div>
-    );
-  }
-
   renderPastry(pastryArray, pastryType) {
     return (
       <ul className={ pastryType }>
@@ -46,21 +30,21 @@ class App extends Component {
     );
   }
 
-  goBakery (e) {
+  goBakery(e) {
     e.preventDefault();
     this.setState({
       location: 'bakery'
     });
   }
 
-  goClarendon (e) {
+  goClarendon(e) {
     e.preventDefault();
     this.setState({
       location: 'clarendon'
     });
   }
 
-  goBack (e) {
+  goBack(e) {
     e.preventDefault();
     this.setState({
       location: null

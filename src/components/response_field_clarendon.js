@@ -14,6 +14,7 @@ class ResponseFieldClarendon extends Component {
       return (
         <PastryCategory 
           key={index} 
+          onClick={() => console.log(index)}
           pastryCategory={pastry} />
       );
     });
