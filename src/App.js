@@ -10,9 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.goBack = this.goBack.bind(this);
-    this.goClarendon = this.goClarendon.bind(this);
-    this.goBakery = this.goBakery.bind(this);
+    this.navigate = this.navigate.bind(this);
 
     this.state = {
       location: null,
@@ -30,24 +28,9 @@ class App extends Component {
     );
   }
 
-  goBakery(e) {
-    e.preventDefault();
+  navigate(page) {
     this.setState({
-      location: 'bakery'
-    });
-  }
-
-  goClarendon(e) {
-    e.preventDefault();
-    this.setState({
-      location: 'clarendon'
-    });
-  }
-
-  goBack(e) {
-    e.preventDefault();
-    this.setState({
-      location: null
+      location: page
     });
   }
 
@@ -58,11 +41,11 @@ class App extends Component {
     } else if (this.state.location === 'bakery') {
       selectedField = <ResponseFieldBakery pastries={this.state.pastries} />;
     } else {
-      selectedField = <ResponseFieldIntro goClarendon={this.goClarendon} goBakery={this.goBakery} />;
+      selectedField = <ResponseFieldIntro navigate={this.navigate} />;
     }
     return (
       <div className="App">
-        <Header goBack={this.goBack} />
+        <Header navigate={this.navigate} />
         {selectedField}
       </div>
     );

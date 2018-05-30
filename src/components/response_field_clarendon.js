@@ -9,12 +9,16 @@ class ResponseFieldClarendon extends Component {
     };
   }
 
+  selectCategory(index) {
+    this.setState({ selectedCategory: index });
+  }
+
   renderCategories() {
     return this.props.pastries.map((pastry, index) => {
       return (
         <PastryCategory 
           key={index} 
-          onClick={() => console.log(index)}
+          onSelectedCategory={ selectedCategory => this.selectedCategory(index)}
           pastryCategory={pastry} />
       );
     });
