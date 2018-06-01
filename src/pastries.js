@@ -1,18 +1,18 @@
-const muffins = () => [
+const muffins = [
   'Blueberry Muffin',
   'Morning Glory Muffin',
   'Chocolate Chip Muffin',
   'Banana Walnut Muffin',
 ];
 
-const scones = () => [
+const scones = [
   'Chocolate Orange Scone',
   'Blueberry Lemon Scone',
   'Butterscotch Scone',
   'Maple Bacon Scone',
 ];
 
-const otherAM = () => [
+const otherAM = [
   'Coffee Cake Slice',
   'Plain Croissant',
   'Chocolate Croissant',
@@ -22,7 +22,7 @@ const otherAM = () => [
   'Buttery Bun of the Day',
 ];
 
-const pmPastries = () => [
+const pmPastries = [
   'Choclate Chunk Cookie',
   'Reese\'s Peanut Butter Cookie',
   'Oatmeal Raisin Cookie',
@@ -31,7 +31,7 @@ const pmPastries = () => [
   'Sweet Potato Blondie',
 ];
 
-const cupcakes = () => [
+const cupcakes = [
   'Milly',
   'Madison',
   'Dexter',

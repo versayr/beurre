@@ -5,16 +5,25 @@ class ResponseFieldBakery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCategory: null,
+      selectedCategory: 2,
     };
   }
 
   renderCategories() {
     return this.props.pastries.map((pastry, index) => {
+      if (this.state.selectedCategory === index) {
+        return (
+          <PastryCategory 
+            key={index} 
+            pastryCategory={pastry}
+            isActive='true' />
+        );
+      }
       return (
         <PastryCategory 
           key={index} 
-          pastryCategory={pastry} />
+          pastryCategory={pastry} 
+          isActive='false' />
       );
     });
   }

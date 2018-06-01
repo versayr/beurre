@@ -29,12 +29,8 @@
   float: right;
 }
 
-.Location-clarendon, .Location-bakery {
-}
-
 .ResponseField {
   background-color: #ffb951;
-  padding: 10px;
   flex: 1 1 auto;
 }
 
@@ -51,7 +47,6 @@ ul {
 
 .pastry-category {
   border: 1px solid #ddd;
-  border-radius: 3px;
   background: #fff;
 }
 
