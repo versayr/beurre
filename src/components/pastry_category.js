@@ -1,8 +1,8 @@
 import React from 'react';
-import PastryItem from './pastry_item';
+// import PastryItem from './pastry_item';
 
 const PastryCategory = (props) => {
-  const categoryName = Object.keys(props.pastryCategory)[0];
+  const categoryName = props.categoryName.name;
   if (!props.isActive) {
     return (
       <li className="pastry-category">

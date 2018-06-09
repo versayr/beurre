@@ -42,11 +42,11 @@ const cupcakes = [
 ];
 
 const PastryList = [
-  { 'Muffins' : muffins },
-  { 'Scones' : scones },
-  { 'Other AM Pastries' : otherAM },
-  { 'PM Pastries' : pmPastries },
-  { 'Cupcakes' : cupcakes },
+  { name: 'Muffins', list: muffins },
+  { name: 'Scones', list: scones },
+  { name: 'Other AM Pastries', list: otherAM },
+  { name: 'PM Pastries', list: pmPastries },
+  { name: 'Cupcakes', list: cupcakes },
 ];
 
 export default PastryList;
