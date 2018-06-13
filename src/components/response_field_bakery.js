@@ -16,14 +16,14 @@ class ResponseFieldBakery extends Component {
           <PastryCategory 
             key={index} 
             pastryCategory={pastry}
-            isActive='true' />
+            isActive={true} />
         );
       }
       return (
         <PastryCategory 
           key={index} 
           pastryCategory={pastry} 
-          isActive='false' />
+          isActive={false} />
       );
     });
   }
