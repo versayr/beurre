@@ -8,7 +8,8 @@ const PastryCategory = (props) => {
 
   if (props.isActive) {
     return (
-      <li className="pastry-category">
+      <li className="pastry-category"
+        onClick={ props.setActive(props.index) }>
         <span>{categoryName}</span>
         <ul className={ categoryName }>
           {pastryItems.map(function(name, index) {
@@ -23,7 +24,9 @@ const PastryCategory = (props) => {
     );
   }
   return (
-    <li className="pastry-category">
+    <li 
+      className="pastry-category"
+      onClick={ props.setActive(props.index) }>
       {categoryName}
     </li>
   );

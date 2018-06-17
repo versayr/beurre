@@ -18,16 +18,6 @@ class App extends Component {
     };
   }
 
-  renderPastry(pastryArray, pastryType) {
-    return (
-      <ul className={ pastryType }>
-        {pastryArray.map(function(name, index) {
-          return <li key={ index }>{name}</li>;
-        })}
-      </ul>
-    );
-  }
-
   navigate(page) {
     this.setState({
       location: page
@@ -36,10 +26,11 @@ class App extends Component {
 
   render() {
     let selectedField;
+    const pastries = this.state.pastries;
     if (this.state.location === 'clarendon') {
-      selectedField = <ResponseFieldClarendon pastries={this.state.pastries} />;
+      selectedField = <ResponseFieldClarendon pastries={pastries} />;
     } else if (this.state.location === 'bakery') {
-      selectedField = <ResponseFieldBakery pastries={this.state.pastries} />;
+      selectedField = <ResponseFieldBakery pastries={pastries} />;
     } else {
       selectedField = <ResponseFieldIntro navigate={this.navigate} />;
     }

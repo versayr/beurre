@@ -7,22 +7,34 @@ class ResponseFieldBakery extends Component {
     this.state = {
       selectedCategory: 2,
     };
+    this.selectCategory = this.selectCategory.bind(this);
+  }
+
+  selectCategory(index) {
+    this.setState({ selectedCategory: index });
   }
 
   renderCategories() {
-    return this.props.pastries.map((pastry, index) => {
-      if (this.state.selectedCategory === index) {
+    const categories = this.props.pastries;
+    const selectedCategory = this.state.selectedCategory;
+
+    return categories.map((pastry, index) => {
+      if (selectedCategory === index) {
         return (
           <PastryCategory 
             key={index} 
+            index={index} 
             pastryCategory={pastry}
+            setActive={this.selectCategory}
             isActive={true} />
         );
       }
       return (
         <PastryCategory 
           key={index} 
+          index={index} 
           pastryCategory={pastry} 
+          setActive={this.selectCategory}
           isActive={false} />
       );
     });
