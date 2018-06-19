@@ -12,7 +12,7 @@ const PastryCategory = (props) => {
         className="pastry-category"
         onClick={ () => props.setActive(props.index) }>
         <span>{categoryName}</span>
-        <ul className={ categoryName }>
+        <ul className="active-category-list">
           {pastryItems.map(function(name, index) {
             return <li 
               className="pastryItem"

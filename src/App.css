@@ -35,13 +35,23 @@ ul {
   margin: 0;
 }
 
-.pastry-category {
+.pastry-category, .pastry-category span {
   border: 1px solid #ddd;
+  padding: 2px;
   background: #fff;
 }
 
 .pastry-category:hover {
   cursor: pointer;
+}
+
+.active-category-list {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.active-category-list li {
+  text-align: left;
 }
 
 .pastryItem {

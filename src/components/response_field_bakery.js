@@ -5,13 +5,17 @@ class ResponseFieldBakery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCategory: 2,
+      selectedCategory: null,
     };
     this.selectCategory = this.selectCategory.bind(this);
   }
 
   selectCategory(index) {
     this.setState({ selectedCategory: index });
+  }
+
+  onFormSubmit(event) {
+    event.preventDefault;
   }
 
   renderCategories() {
@@ -42,11 +46,13 @@ class ResponseFieldBakery extends Component {
 
   render() {
     return (
-      <div className="ResponseField">
+      <form 
+        onSubmit={this.onFormSubmit}
+        className="ResponseField">
         <ul>
           {this.renderCategories()}
         </ul>
-      </div>
+      </form>
     );
   }
 }
