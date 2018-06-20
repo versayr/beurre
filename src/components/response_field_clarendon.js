@@ -7,30 +7,52 @@ class ResponseFieldClarendon extends Component {
     this.state = {
       selectedCategory: null,
     };
+    this.selectCategory = this.selectCategory.bind(this);
   }
 
   selectCategory(index) {
     this.setState({ selectedCategory: index });
   }
 
+  onFormSubmit(event) {
+    event.preventDefault;
+  }
+
   renderCategories() {
-    return this.props.pastries.map((pastry, index) => {
+    const categories = this.props.pastries;
+    const selectedCategory = this.state.selectedCategory;
+
+    return categories.map((pastry, index) => {
+      if (selectedCategory === index) {
+        return (
+          <PastryCategory 
+            key={index} 
+            index={index} 
+            pastryCategory={pastry}
+            setActive={this.selectCategory}
+            isActive={true} />
+        );
+      }
       return (
         <PastryCategory 
           key={index} 
-          onSelectedCategory={ selectedCategory => this.selectedCategory(index)}
-          pastryCategory={pastry} />
+          index={index} 
+          pastryCategory={pastry} 
+          setActive={this.selectCategory}
+          isActive={false} />
       );
     });
   }
 
   render() {
     return (
-      <div className="ResponseField">
+      <form 
+        onSubmit={this.onFormSubmit}
+        className="ResponseField">
         <ul>
           {this.renderCategories()}
         </ul>
-      </div>
+      </form>
     );
   }
 }

@@ -17,7 +17,8 @@ const PastryCategory = (props) => {
             return <li 
               className="pastryItem"
               key={ index }>
-              {name}
+              <label>{name}</label>
+              <input type="number" step="1" />
             </li>;
           })}
         </ul>
