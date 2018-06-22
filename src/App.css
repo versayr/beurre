@@ -37,8 +37,9 @@ ul {
 
 .pastry-category, .pastry-category span {
   border: 1px solid #ddd;
-  padding: 2px;
   background: #fff;
+  margin: 2px auto;
+  width: 100%;
 }
 
 .pastry-category:hover {
@@ -46,14 +47,22 @@ ul {
 }
 
 .active-category-list {
-  margin: 0 auto;
-  width: 300px;
+  background: grey;
 }
 
 .active-category-list li {
   text-align: left;
+  width: 400px;
+  margin: 0 auto;
 }
 
-.pastryItem {
-  background: red;
+.pastry-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pastry-item label {
+}
+
+.pastry-item input {
 }

@@ -1,7 +1,7 @@
 const muffins = [
   'Blueberry Muffin',
   'Morning Glory Muffin',
-  'Chocolate Chip Muffin',
+  'Raspberry Orange Muffin',
   'Banana Walnut Muffin',
 ];
 
@@ -38,7 +38,7 @@ const cupcakes = [
   'Simon',
   'Harriet',
   'Red Velvet',
-  'German Chocolate',
+  'Pina Colada',
 ];
 
 const PastryList = [
